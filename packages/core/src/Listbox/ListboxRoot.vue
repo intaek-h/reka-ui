@@ -265,6 +265,10 @@ function onEnter(event: Event) {
 }
 
 function onKeydownNavigation(event: KeyboardEvent) {
+  if (isComposing.value) {
+    return
+  }
+  
   const intent = getFocusIntent(event, orientation.value, dir.value)
   if (!intent)
     return
